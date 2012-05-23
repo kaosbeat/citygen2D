@@ -51,6 +51,7 @@ int bc;
      //println("y:" +y+", x: "+x );
      for(int i = 0; i<floors*travees; i++) {
       // this.window.x = i*this.window.W ;
+      stroke(0);
        window.render(x + i%travees*this.window.W,  y-i%floors*this.window.H);
        }
      roof.render();
