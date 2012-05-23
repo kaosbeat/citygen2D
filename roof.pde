@@ -6,6 +6,7 @@ int x;
 int roofwidth;
 int y;
 Window window;
+Window gargoyle;
 color bc;
 int centerX = x + roofwidth/2;
 int roofheight = 0;
@@ -24,6 +25,8 @@ Roof(int x, int y, int roofwidth, color bc){
   this.roofwidth = roofwidth;
   this.y = y;
   window = new Window(3,3);
+  gargoyle = new Window(3,9);
+  //println(gargoyle.dna);
   this.bc = bc;
   fill(bc);
   stroke(0);
@@ -52,10 +55,16 @@ void type2() {
 }
 
 
+void type3 () { //the one with gargoyles
+  int topY = height-y;
+  gargoyle.render(this.x, topY);
+  gargoyle.render(this.x+roofwidth, topY);
+}
+
 
 void render(){
-  if (rooftype == 0) { type1(); }
-  if (rooftype == 1) { type2(); }
+  if (rooftype == 0) { type3(); }
+  if (rooftype == 1) { type3(); }
   }
 
 }
