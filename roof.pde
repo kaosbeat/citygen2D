@@ -1,7 +1,7 @@
 //roofs always get smaller towards the sky
 //roofs are symmetric 90% of the times
 class Roof {
-boolean symmetric;
+//boolean symmetric;
 int x;
 int roofwidth;
 int y;
@@ -11,6 +11,7 @@ int centerX = x + roofwidth/2;
 int roofheight = 0;
 int roofinc = 5;
 int widthfactor=0;
+int rooftype = 0;
 
 Roof(){
   
@@ -18,7 +19,7 @@ Roof(){
 
 Roof(int x, int y, int roofwidth, color bc){
   //x = 0;
-  if (int(random(0,10)) > 8) {symmetric = false;}
+  if (int(random(0,10)) > 8) {rooftype = 1;}
   this.x = x;
   this.roofwidth = roofwidth;
   this.y = y;
@@ -53,7 +54,8 @@ void type2() {
 
 
 void render(){
-  type1();
+  if (rooftype == 0) { type1(); }
+  if (rooftype == 1) { type2(); }
   }
 
 }
