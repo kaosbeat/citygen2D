@@ -37,4 +37,14 @@ class Window {
    }
   } 
   
+  void render2(int offsetX, int offsetY){
+      for(int i = 0; i<dna.length/this.W; i++) {
+     for(int j = 0; j<dna.length/this.H; j++) {
+       if (dna[i] == 1){
+         point(i+offsetX,j+offsetY);
+       }
+      }
+    } 
+  }
+  
 }
