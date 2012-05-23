@@ -22,18 +22,17 @@ void type1(){
   int topY = height-y;
   int centerX = x + roofwidth/2;
   int roofheight = 0;
-  
-  for (int i=0;i<4;i++) {
+  int roofinc = 10;
+  for (int i=0;i<5;i++) {
+    roofheight = y/((roofinc*i)+10);
+    println(y +roofheight);
     if (i%2 == 0) { fill(25);} else {fill(255);}
-    rect(this.x-2+(i*(i-1)),topY-=y/80+(i*10),roofwidth+4-2*i*(i-1), y/80+(i*10));
-    roofheight+=y/80+(i*10);
+    rect(this.x-2+(i*(i-1)),topY-=roofheight,roofwidth+4-2*i*(i-1), roofheight);   
   }
 }
 
 void render(){
   type1();
-
-//  println(x +","+ y+","+roofwidth+","+y/4);
   }
 
 }
