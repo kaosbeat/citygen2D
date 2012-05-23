@@ -21,7 +21,7 @@ int bc;
     window = new Window(int(random(3,9)),int(random(3,6)));
     bh = floors*window.H;
     bw = travees*window.W; 
-    roof = new Roof(x,bw,bh);
+    roof = new Roof(x,bw,bh,bc);
   }
   
   Building(int x_, int y_, int floors_, int travees_) {
@@ -34,7 +34,7 @@ int bc;
     bh = floors*window.H;
     bw = travees*window.W; 
     println (x +"," + bh +","+bw);
-    roof = new Roof(x,bh,bw);
+    roof = new Roof(x,bh,bw,bc);
     //door = new Door();
   }
   
