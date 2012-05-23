@@ -20,12 +20,15 @@ Roof(){
 
 Roof(int x, int y, int roofwidth, color bc){
   //x = 0;
-  if (int(random(0,10)) > 8) {rooftype = 1;}
+  rooftype = int(random(0,10));
+  if ( rooftype > 9) {rooftype = 3;}
+  if ( rooftype < 3) {rooftype = 2;}
+  else { rooftype = 1;}
   this.x = x;
   this.roofwidth = roofwidth;
   this.y = y;
   window = new Window(3,3);
-  gargoyle = new Window(3,9);
+  gargoyle = new Window(7,3);
   //println(gargoyle.dna);
   this.bc = bc;
   fill(bc);
@@ -57,14 +60,18 @@ void type2() {
 
 void type3 () { //the one with gargoyles
   int topY = height-y;
-  gargoyle.render(this.x, topY);
-  gargoyle.render(this.x+roofwidth, topY);
+  
+  //rect(this.x, topY-8,3,7);
+  gargoyle.render(this.x, topY-5);
+  //rect(this.x+roofwidth-3, topY-8,3,7);
+  gargoyle.render(this.x+roofwidth-3, topY-5);
 }
 
 
 void render(){
-  if (rooftype == 0) { type3(); }
-  if (rooftype == 1) { type3(); }
+  if (rooftype == 3) { type3(); }
+  if (rooftype == 2) { type2(); }
+  if (rooftype == 1) { type1(); }
   }
 
 }
