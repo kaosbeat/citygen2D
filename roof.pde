@@ -22,13 +22,12 @@ void type1(){
   int topY = height-y;
   int centerX = x + roofwidth/2;
   int roofheight = 0;
-  fill(25);
-  rect(this.x-2,topY-=y/20,roofwidth+4,roofheight+=y/20);
-  fill(255);
-  rect(this.x+roofwidth/10,topY-=y/40,roofwidth-roofwidth/10,y/40);
-  roofheight+=y/40;
- // rect(this.x+roofwidth/10,height-y-y/20-y/20,roofwidth-roofwidth/10,y/30);
-
+  
+  for (int i=0;i<4;i++) {
+    if (i%2 == 0) { fill(25);} else {fill(255);}
+    rect(this.x-2+(i*(i-1)),topY-=y/80+(i*10),roofwidth+4-2*i*(i-1), y/80+(i*10));
+    roofheight+=y/80+(i*10);
+  }
 }
 
 void render(){
