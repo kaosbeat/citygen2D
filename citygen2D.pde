@@ -8,7 +8,7 @@ boolean saved = false;
 
 void setup(){
    
-   size(600,150);  
+   size(600,150,P2D);  
    background(255);
    smooth();
    //frameRate(4);
