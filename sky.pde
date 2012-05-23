@@ -1,5 +1,5 @@
 class Sky{
- float noiseScale=0.002;
+ float noiseScale=0.005;
  int skyheight; 
  float[] randomness;
  int seektype;
@@ -33,14 +33,14 @@ class Sky{
   }
   
   void type2() {
-    // seektype int(x/(i+1))%200 or i
+    // seektype int(x/(i+1))%200 or i or int(370*x/(i+1))%200
     for(int x=0; x < width; x++) {
     float noiseVal = noise((x)*noiseScale, 
-                            15*noiseScale);
+                            mouseY*noiseScale);
     stroke(0);
     line(x, 15+noiseVal*80, x, 0);
     for(int i=0;i<15+noiseVal*80;i++) {
-      if (i/(15+noiseVal*80) > randomness[int(370*x/(i+1))%200] ) {  //change seektype here
+      if (i/(15+noiseVal*80) > randomness[i] ) {  //change seektype here
        stroke(255);
        point(x,i);
       } else {
