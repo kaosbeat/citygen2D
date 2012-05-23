@@ -33,7 +33,7 @@ int bc;
     window = new Window();
     bh = floors*window.H;
     bw = travees*window.W; 
-    println (x +"," + bh +","+bw);
+    //println (x +"," + bh +","+bw);
     roof = new Roof(x,bh,bw,bc);
     //door = new Door();
   }
