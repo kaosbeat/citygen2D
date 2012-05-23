@@ -26,14 +26,15 @@ void type1(){
   int roofheight = 0;
   int roofinc = 2;
   int widthfactor=0;
-  for (int i=0;i<5;i++) {
+  for (int i=0;i<9;i++) {
     roofheight = y/((roofinc*i)+10);
     widthfactor=2*i*(i-1);
+    if (widthfactor*2 > roofwidth) {i=9; widthfactor=(roofwidth+4)/2;}
     if (i%2 == 0) { fill(25);} else {fill(255);}
-    rect(this.x-2+widthfactor,topY-=roofheight,roofwidth+4-widthfactor, roofheight);
+    rect(this.x-2+widthfactor,topY-=roofheight,roofwidth+4-2*widthfactor, roofheight);
      if (roofheight > 5) {
        stroke(128);
-       for (int j=0;j < (roofwidth+4-widthfactor)/4;j++) {
+       for (int j=0;j < (roofwidth+4-2*widthfactor)/4;j++) {
          window.render(this.x-2+widthfactor + j*4,topY+roofheight-4);
        }
      }  
