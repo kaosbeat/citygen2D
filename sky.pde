@@ -40,7 +40,7 @@ class Sky{
     stroke(0);
     line(x, 15+noiseVal*80, x, 0);
     for(int i=0;i<15+noiseVal*80;i++) {
-      if (i/(15+noiseVal*80) > randomness[i] ) {  //change seektype here
+      if (i/(15+noiseVal*80) > randomness[int(500*x/(i+1))%200] ) {  //change seektype here
        stroke(255);
        point(x,i);
       } else {
