@@ -17,7 +17,7 @@ void setup(){
    buildings = new Building[citysize];
    for (int i=0;i<citysize;i++){
      buildings[i] = new Building(x,height,int(random(3,40)),int(random(2,15)));
-     x = x + buildings[i].bw;
+     x = x + buildings[i].bw + buildings[i].bw/5;
    //B = new Building(0,150,6,3);
    sky = new Sky();
    }
