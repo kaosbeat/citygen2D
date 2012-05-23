@@ -28,7 +28,7 @@ class Window {
     //println(dna);
   }
  
-  void render(int offsetX, int offsetY) {
+  void renderOLD(int offsetX, int offsetY) {
   //println(offsetX +","+ offsetY);
    for(int i = 0; i<dna.length; i++) {
      if (dna[i] == 1){
@@ -37,12 +37,13 @@ class Window {
    }
   } 
   
-  void render2(int offsetX, int offsetY){
-      for(int i = 0; i<dna.length/this.W; i++) {
+  void render(int offsetX, int offsetY){
+    for(int i = 0; i<dna.length/this.W; i++) {
      for(int j = 0; j<dna.length/this.H; j++) {
-       if (dna[i] == 1){
+       if (dna[(i*j)+j] == 1){
          point(i+offsetX,j+offsetY);
        }
+      // println(i+","+j);
       }
     } 
   }
