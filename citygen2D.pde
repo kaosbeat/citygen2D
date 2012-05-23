@@ -3,8 +3,11 @@ Building B;
 Building[] buildings;
 int citysize = 45;
 int x;
+boolean saved = false;
+
 
 void setup(){
+   
    size(600,150);  
    background(255);
    smooth();
@@ -21,5 +24,10 @@ void setup(){
 void draw() {
   for (Building B:buildings) {
     B.render();
+  }
+  if (saved == false) { 
+    Date d = new Date();
+    save("2dcity"+d.getTime()+".png");
+    saved = true;
   }
 }
