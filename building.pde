@@ -23,6 +23,7 @@ int bc;
     bh = floors*window.H;
     bw = travees*window.W; 
     roof = new Roof(x,bw,bh,bc);
+    column = new Column(bw,bh,x);
   }
   
   Building(int x_, int y_, int floors_, int travees_) {
@@ -37,9 +38,9 @@ int bc;
     //println (x +"," + bh +","+bw);
     roof = new Roof(x,bh,bw,bc);
     //door = new Door();
-    if (floors>travees) {
+    //if (floors>travees) {
       column = new Column(bw,bh,x);
-    }
+    //}
   }
   
   void init() {
@@ -52,9 +53,7 @@ int bc;
    fill(bc);
  //  for (int j =0;j<steps;++){ 
      rect(x,y-bh,bw,bh);
-     //println("y:" +y+", x: "+x );
      for(int i = 0; i<floors*travees; i++) {
-      // this.window.x = i*this.window.W ;
       stroke(0);
        window.render(x + i%travees*this.window.W,  y-i%floors*this.window.H);
        }
