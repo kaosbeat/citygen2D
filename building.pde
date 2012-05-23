@@ -18,7 +18,7 @@ int bc;
     this.y = height;
     floors = int(random(5,40));
     travees = int(random(3,18));
-    window = new Window(int(random(1,9)),int(random(2,6)));
+    window = new Window(int(random(3,9)),int(random(3,6)));
     bh = floors*window.H;
     bw = travees*window.W; 
     roof = new Roof(x,bw,bh);
