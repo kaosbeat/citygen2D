@@ -39,7 +39,7 @@ int bc;
     roof = new Roof(x,bh,bw,bc);
     //door = new Door();
     if (floors>travees) {
-      column = new Column(bw,bh,x);
+     // column = new Column(bw,bh,x);
     }
   }
   
@@ -58,7 +58,7 @@ int bc;
        window.render(x + i%travees*this.window.W,  y-i%floors*this.window.H);
        }
      roof.render();
-     if (floors>travees) {column.render();}
+    // if (floors>travees) {column.render();}
      }
        
    // }
