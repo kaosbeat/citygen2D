@@ -29,7 +29,7 @@ void draw() {
   }
   sky.render();
   //save png
-  if (buildings[0].constructionprogress == 100 && saved == false) { 
+  if (buildings[0].constructionprogress == 50 && saved == false) { 
     Date d = new Date();
     save("2dcity"+d.getTime()+".png");
     saved = true;

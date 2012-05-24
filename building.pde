@@ -58,21 +58,21 @@ int constructionprogress;
    rect(x,y-bh*constructionprogress/100,bw,bh*constructionprogress/100);
    //for(int i = 0; i<floors*travees; i++) {
       stroke(0);
-   for(int i = 0; i<floors*constructionprogress/100; i++) {
+   for(int i = 0; i<floors; i++) {
      for(int j = 0; j<travees; j++) {
-       if (i*j + j < floors*travees*constructionprogress/100) {
+       if (i < floors*constructionprogress/100) {
          //draw window
          window.render(x + 1 + j*this.window.W,  y-i*this.window.H - 3*this.window.H);
-       }else{
-       //draw skeleton
-       rect(float(x + 1 + j*this.window.W), float(y-i*this.window.H - 3*this.window.H), float(this.window.W), float(this.window.H));       
+       } else if (i*j + i < floors*travees*constructionprogress/100 - 8*travees){
+          rect(float(x + 1 + j*this.window.W), float(y-i*this.window.H - 3*this.window.H), float(this.window.W), float(this.window.H));
+       //window.render(x + 1 + j*this.window.W, y-i*this.window.H - 3*this.window.H);      
        //draw nothing / crane
        //code goes here
        }
      }
    }
    if (constructionprogress < 100) { constructionprogress++;}
-   if (constructionprogress == 100) { roof.render(); }
+   roof.render(constructionprogress);
  }
 
 }
