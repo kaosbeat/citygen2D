@@ -25,11 +25,11 @@ int constructionprogress;
     bw = travees*window.W; 
     roof = new Roof(x,bw,bh,bc);
     column = new Column(bw,bh,x);
-    constructionprogress = 50;
+    constructionprogress = 0;
   }
   
   Building(int x_, int y_, int floors_, int travees_) {
-    constructionprogress = 50;
+    constructionprogress = 0;
     bc = int(random(128)+128);
     x = x_;
     y = y_;
@@ -56,11 +56,23 @@ int constructionprogress;
    fill(bc);
    ///finished % of building
    rect(x,y-bh*constructionprogress/100,bw,bh*constructionprogress/100);
-   for(int i = 0; i<floors*travees; i++) {
-    stroke(0);
-     window.render(x + 1 + i%travees*this.window.W,  y-i%floors*this.window.H - 3*this.window.H);
+   //for(int i = 0; i<floors*travees; i++) {
+      stroke(0);
+   for(int i = 0; i<floors; i++) {
+     for(int j = 0; j<travees; j++) {
+       if (i*j + j < floors*travees*constructionprogress/100) {
+         //draw window
+         window.render(x + 1 + j*this.window.W,  y-i*this.window.H - 3*this.window.H);
+       }else{
+       //draw skeleton
+       rect(float(x + 1 + j*this.window.W), float(y-i*this.window.H - 3*this.window.H), float(this.window.W), float(this.window.H));       
+       //draw nothing / crane
+       //code goes here
+       }
      }
-   roof.render();
    }
+   if (constructionprogress < 100) { constructionprogress++;}
+   else { roof.render(); }
+ }
 
 }
