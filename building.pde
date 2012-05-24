@@ -58,7 +58,7 @@ int constructionprogress;
    rect(x,y-bh*constructionprogress/100,bw,bh*constructionprogress/100);
    //for(int i = 0; i<floors*travees; i++) {
       stroke(0);
-   for(int i = 0; i<floors; i++) {
+   for(int i = 0; i<floors*constructionprogress/100; i++) {
      for(int j = 0; j<travees; j++) {
        if (i*j + j < floors*travees*constructionprogress/100) {
          //draw window
@@ -72,7 +72,7 @@ int constructionprogress;
      }
    }
    if (constructionprogress < 100) { constructionprogress++;}
-   else { roof.render(); }
+   if (constructionprogress == 100) { roof.render(); }
  }
 
 }
