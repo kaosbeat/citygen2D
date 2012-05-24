@@ -9,7 +9,7 @@ Sky sky;
 
 void setup(){
    
-   size(210,150,P2D);  
+   size(960,240,P2D);  
    background(255);
    smooth();
    //frameRate(4);
@@ -31,7 +31,7 @@ void draw() {
   //save png
   if (saved == false) { 
     Date d = new Date();
-    save("1Pager2dcity"+d.getTime()+".png");
+    save("2dcity"+d.getTime()+".png");
     saved = true;
   }
   
