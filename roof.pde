@@ -13,7 +13,7 @@ int roofheight = 0;
 int roofinc = 5;
 int widthfactor=0;
 int rooftype = 0;
-int constructionprogress;
+//int constructionprogress;
 
 Roof(){
   
@@ -21,7 +21,7 @@ Roof(){
 
 Roof(int x, int y, int roofwidth, color bc){
   //x = 0;
-  //constructionprogress = constructionprogress;
+  //this.constructionprogress = constructionprogress;
   rooftype = int(random(0,10));
   if ( rooftype > 9) {rooftype = 3;}
   if ( rooftype < 3) {rooftype = 2;}
@@ -69,33 +69,12 @@ void type3 () { //the one with gargoyles
   gargoyle.render(this.x+roofwidth-3, topY-5);
 }
 
-void type4 () {
-  if (constructionprogress > 90 ) {stroke(255);} else {stroke(18,0,128);}
-  int topY = height-y;
-  
-  line(x, topY-45, x, height);
-  line(x+2, topY-45, x+2 ,height);
-  line(x - 0.2*roofwidth, topY-35, x + 0.85*roofwidth, topY-35);
-  line(x - 0.2*roofwidth, topY-37, x + 0.85*roofwidth, topY-37);
-  line(x - 0.2*roofwidth, topY-35, x, topY-45);
-  line(x, topY-45, x + 0.85*roofwidth, topY-35);
-  rect(x,topY-37,2,2);
-  //line(x + 0.6*roofwidth, topY-37, x + 0.6*roofwidth, topY-37 + random(10,80));
-  
-}
 
 
-void render(int constructionprogress){
- // println (constructionprogress);
-  if (constructionprogress > 99) {
+void render(){
     if (rooftype == 3) { type3(); }
     if (rooftype == 2) { type2(); }
     if (rooftype == 1) { type1(); }
-  } else {
-    type4(); 
-  }
-  
-  
   }
 
 }

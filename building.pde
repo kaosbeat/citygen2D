@@ -1,9 +1,9 @@
   //collection of windows
 class Building {
-
 Roof roof;
 Window window;
 Column column;
+Crane crane;
 int x;
 int y;
 int floors;
@@ -26,24 +26,27 @@ int constructionprogress;
     roof = new Roof(x,bw,bh,bc);
     column = new Column(bw,bh,x);
     constructionprogress = 0;
+    this.crane = new Crane(x,bh,bw);
   }
   
-  Building(int x_, int y_, int floors_, int travees_) {
-    constructionprogress = 0;
-    bc = int(random(128)+128);
-    x = x_;
-    y = y_;
-    floors = floors_;
-    travees = travees_;
-    window = new Window();
-    bh = floors*window.H;
-    bw = travees*window.W; 
+  Building(int x, int y, int floors, int travees, int constructionprogress) {
+    this.constructionprogress = constructionprogress;
+    this.bc = int(random(128)+128);
+    this.x = x;
+    this.y = y;
+    this.floors = floors;
+    this.travees = travees;
+    this.window = new Window();
+    this.bh = floors*window.H;
+    this.bw = travees*window.W; 
     //println (x +"," + bh +","+bw);
-    roof = new Roof(x,bh,bw,bc);
+    this.roof = new Roof(x,bh,bw,bc);
     //door = new Door();
     if (floors>travees) {
      // column = new Column(bw,bh,x);
+     this.crane = new Crane(x,bh,bw);
     }
+    
   }
   
   void init() {
@@ -57,7 +60,7 @@ int constructionprogress;
    ///finished % of building
    rect(x,y-bh*constructionprogress/100,bw,bh*constructionprogress/100);
    //for(int i = 0; i<floors*travees; i++) {
-      stroke(0);
+   stroke(0);
    for(int i = 0; i<floors; i++) {
      for(int j = 0; j<travees; j++) {
        if (i < floors*constructionprogress/100) {
@@ -71,8 +74,11 @@ int constructionprogress;
        }
      }
    }
-   if (constructionprogress < 100) { constructionprogress++;}
-   roof.render(constructionprogress);
+   //if (this.constructionprogress < 100) {this.constructionprogress++;}
+   if (this.constructionprogress < 85) {
+     this.crane.render();
+   }
+   if (this.constructionprogress > 95) { this.roof.render();}
  }
 
 }

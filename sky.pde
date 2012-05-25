@@ -1,5 +1,5 @@
 class Sky{
- float noiseScale=0.005;
+ float noiseScale=0.002;
  int skyheight; 
  float[] randomness;
  int seektype;
