@@ -35,7 +35,10 @@ void setup(){
 void draw() {
    background(255);
   for (Building B:buildings) {
+    B.x--;
+    B.roof.x--;
     B.render();
+    
   }
   sky.render();
   //save png
