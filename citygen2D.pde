@@ -20,7 +20,7 @@ void setup(){
   for (int i=0;i<citysize;i++){
       if (random(1,10)<9) { constructionprogress = 100; bw=int(random(2,10)); }
       else { 
-        constructionprogress = 65;
+        //constructionprogress = 65;
         constructionprogress = int(random(50,100)); 
         bw=int(random(4,10)) ;
       }

@@ -74,11 +74,12 @@ int constructionprogress;
        }
      }
    }
-   //if (this.constructionprogress < 100) {this.constructionprogress++;}
-   if (this.constructionprogress < 85) {
+   if (this.constructionprogress < 100) {
+     this.constructionprogress++;
      this.crane.render();
    }
-   if (this.constructionprogress > 95) { this.roof.render();}
+
+   if (this.constructionprogress > 99) { this.roof.render();}
  }
 
 }

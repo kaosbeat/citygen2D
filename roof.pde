@@ -63,10 +63,15 @@ void type2() {
 void type3 () { //the one with gargoyles
   int topY = height-y;
   
-  //rect(this.x, topY-8,3,7);
+  rect(this.x, topY-8,3,7);
   gargoyle.render(this.x, topY-5);
-  //rect(this.x+roofwidth-3, topY-8,3,7);
+  rect(this.x+roofwidth-3, topY-8,3,7);
   gargoyle.render(this.x+roofwidth-3, topY-5);
+}
+
+void type4() {
+  int topY = height - y;
+  
 }
 
 
